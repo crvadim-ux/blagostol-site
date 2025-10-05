@@ -1,0 +1,520 @@
+/* style.css — Благостол */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f9f7f4;
+  color: #333;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* === Герой секция === */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 15;
+  padding: 60px;
+}
+
+.hero-text-center {
+  max-width: 800px;
+  padding: 20px;
+  text-align: right;
+  margin-top: 80px;
+  margin-right: 60px;
+}
+
+.hero-text-center h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+}
+
+.hero-text-center p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: white;
+  text-align: right;
+  max-width: 500px;
+  margin-left: auto;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Кнопка CTA === */
+.btn-cta {
+  display: inline-block;
+  background: #cdaa7d;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  z-index: 20;
+}
+
+.btn-cta:hover {
+  background: #b8966e;
+}
+
+/* === Секция "Варианты сервировки" === */
+.servirka {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+.servirka-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.servirka-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* === Общие стили секций === */
+section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #5d4037;
+}
+
+section p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #666;
+}
+
+/* === Каталог товаров === */
+.catalog {
+  background-color: #fff;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* === Контейнер для изображений товара === */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.product-card:hover .main-image {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.product-card:hover .hover-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.image-container:has(.hover-image[src=""]) .main-image,
+.image-container:has(.hover-image:not([src])) .main-image {
+  transition: transform 0.4s ease;
+}
+
+.image-container:has(.hover-image[src=""]):hover .main-image,
+.image-container:has(.hover-image:not([src])):hover .main-image {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  font-family: 'Playfair Display', serif;
+  padding: 15px;
+  text-align: center;
+  color: #5d4037;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.product-card p {
+  padding: 0 15px;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.price {
+  font-weight: bold;
+  color: #cdaa7d;
+  padding: 0 15px;
+  display: block;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.btn-small {
+  display: block;
+  background: #cdaa7d;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 10px auto;
+  width: calc(100% - 30px);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-small:hover {
+  background: #b8966e;
+}
+
+.btn {
+  display: inline-block;
+  background: #cdaa7d;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #b8966e;
+}
+
+/* === НОВЫЕ СЕКЦИИ: Доп. информация и Контакты === */
+#additional-info {
+  background-color: #f9f7f2;
+  padding: 80px 0;
+}
+
+#additional-info h2 {
+  color: #5d4037;
+}
+
+#additional-info p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+#contacts {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+#contacts h2 {
+  color: #5d4037;
+}
+
+#contacts p {
+  max-width: 600px;
+  margin: 0.8rem auto;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+#contacts a {
+  color: #cdaa7d;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#contacts a:hover {
+  text-decoration: underline;
+}
+
+/* === Выделение контактов в дополнительной информации === */
+.contact-highlight {
+  background-color: #f9f7f2;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.contact-highlight span {
+  display: block;
+  margin: 0.5rem 0;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+.contact-highlight a {
+  color: #cdaa7d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-highlight a:hover {
+  text-decoration: underline;
+}
+
+/* === Адаптивность === */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 30px;
+    align-items: center;
+  }
+  
+  .hero-text-center {
+    text-align: center;
+    margin: 40px 0 0 0;
+    max-width: 100%;
+  }
+  
+  .hero-text-center h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .hero-text-center p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 2rem auto;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  .btn-cta {
+    position: static;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    width: 80%;
+  }
+  
+  .image-container {
+    height: 250px;
+  }
+}
+
+/* === Плавная прокрутка === */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* === Модальное окно === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #5d4037;
+}
+
+.modal-content p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.modal-content p strong {
+  color: #5d4037;
+}
+
+.modal-content button.btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+/* === Запрет прокрутки при открытом модальном окне === */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* === Подвал === */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9rem;
+}
