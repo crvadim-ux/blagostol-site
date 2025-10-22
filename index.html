@@ -75,7 +75,7 @@
           <p>Помидоры, как капли лета, сыр — мягкий и белый, орехи — хрустящие. Поднос, где каждый элемент — отголосок солнечного дня.</p>
           <span class="size">⌀ 230×30 мм.</span>
           <span class="price">1800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -87,7 +87,7 @@
           <p>Дерево, что хранит в себе сладость винограда, хруст миндаля и тепло абрикосов — идеально для уютных вечеров и щедрых душ.</p>
           <span class="size">⌀ 320×30 мм. + 8 маленьких тарелок</span>
           <span class="price">3000 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -99,7 +99,7 @@
           <p>Сочное мясо, дымящиеся овощи и соусы — всё, что нужно для гастрономического вдохновения, подано с теплом дерева.</p>
           <span class="size">350×230×35 мм.</span>
           <span class="price">2500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -111,7 +111,7 @@
           <p>Картошка как солнце в тарелке, зелень как ветерок, а приправы как история на каждом укусе.</p>
           <span class="size">145×145×22 мм.</span>
           <span class="price">600 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -123,7 +123,7 @@
           <p>Идеально для тех, кто ценит красоту в деталях — и хочет, чтобы даже завтрак был праздником.</p>
           <span class="size">⌀ 220 мм, высота 30 мм.</span>
           <span class="price">800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -135,7 +135,7 @@
           <p>Для тех, кто ест не глазами — а душой.</p>
           <span class="size">350×230×35 мм.</span>
           <span class="price">2500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -147,7 +147,7 @@
           <p>Оливки — как море, сыр — как облако, орехи — как земля. Три мира на одном подносе — чтобы наслаждаться медленно.</p>
           <span class="size">300×103×22 мм.</span>
           <span class="price">800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -159,7 +159,7 @@
           <p>Томаты — как капли солнца, авокадо — как шёлк природы. Два цвета, два вкуса, одно удовольствие.</p>
           <span class="size">⌀ 280 мм, высота 22 мм.</span>
           <span class="price">1500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
 
         <div class="product-card">
@@ -171,7 +171,7 @@
           <p>Чашка дымящегося чая, свежий рулет с ягодами — идеально для тех, кто знает: счастье иногда помещается в одну тарелку.</p>
           <span class="size">190×190×22 мм.</span>
           <span class="price">700 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
+          <a href="#" class="btn-small">Заказать</a>
         </div>
       </div>
     </div>
@@ -209,11 +209,14 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h3>Оформить заказ</h3>
-      <p>Укажите ваше имя и телефон, мы свяжемся с вами в течение 24 часов.</p>
+      <p id="product-display" style="font-weight: bold; margin-bottom: 16px;"></p>
+      
       <form id="order-form">
-        <input type="text" placeholder="Ваше имя" required>
-        <input type="tel" placeholder="Телефон" required>
-        <button type="submit">Отправить заказ</button>
+        <input type="text" id="customer-name" placeholder="Ваше имя" required>
+        <input type="tel" id="customer-phone" placeholder="Ваш WhatsApp (телефон)" required>
+        <input type="hidden" id="selected-product" name="Товар">
+        
+        <button type="submit">Отправить запрос в WhatsApp</button>
       </form>
     </div>
   </div>
@@ -261,46 +264,81 @@
     .modal-content button {
       width: 100%;
       padding: 10px;
-      background: #4CAF50;
+      background: #25D366; /* Цвет WhatsApp */
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-weight: bold;
     }
     .modal-content button:hover {
-      background: #45a049;
+      background: #128C7E;
     }
   </style>
 
   <script>
-    // Открытие модального окна
-    document.querySelectorAll('.btn-small').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('order-modal').style.display = 'flex';
-        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Закрытие по крестику
-    document.querySelector('.close').addEventListener('click', () => {
-      document.getElementById('order-modal').style.display = 'none';
-    });
-
-    // Закрытие по клику вне окна
-    window.addEventListener('click', (e) => {
+    document.addEventListener('DOMContentLoaded', function() {
       const modal = document.getElementById('order-modal');
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+      const closeBtn = document.querySelector('.close');
+      const orderButtons = document.querySelectorAll('.btn-small');
+      const form = document.getElementById('order-form');
+      const productDisplay = document.getElementById('product-display');
+      const selectedProductInput = document.getElementById('selected-product');
 
-    // Отправка формы
-    document.getElementById('order-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Спасибо за заказ! Мы свяжемся с вами в течение 24 часов.');
-      this.reset();
-      document.getElementById('order-modal').style.display = 'none';
+      // Открытие модального окна
+      orderButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const card = this.closest('.product-card');
+          const name = card.querySelector('h3').textContent;
+          const price = card.querySelector('.price').textContent;
+          const full = `${name} — ${price}`;
+
+          productDisplay.textContent = full;
+          selectedProductInput.value = full;
+
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      // Закрытие
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      // Отправка в WhatsApp
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('customer-name').value.trim();
+        const phone = document.getElementById('customer-phone').value.trim().replace(/\D/g, ''); // оставить только цифры
+        const product = selectedProductInput.value;
+
+        if (!name || !phone) return;
+
+        // Номер получателя (твой WhatsApp)
+        const to = '79831253213';
+        // Формируем сообщение
+        const message = `Здравствуйте! Хочу заказать:\n\n${product}\n\nИмя: ${name}\nТелефон: +${phone}`;
+        const url = `https://wa.me/${to}?text=${encodeURIComponent(message)}`;
+
+        // Открываем WhatsApp
+        window.open(url, '_blank');
+
+        // Закрываем модалку
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        form.reset();
+      });
     });
   </script>
 </body>
