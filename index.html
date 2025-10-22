@@ -1,208 +1,98 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Благостол — Подносы и тарелки из сибирского кедра</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Эко-подносы и сырные тарелки из натурального сибирского кедра ручной работы. Изготовление на заказ в Новосибирске.">
-  <meta name="keywords" content="подносы из кедра, сырные тарелки, кедровая посуда, деревянные подносы, эко посуда, ручная работа, Новосибирск, Благостол, кедр сибирский, тарелки для сыра">
-  <meta name="author" content="Благостол">
+<!-- Модальное окно заказа -->
+<div id="order-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Оформить заказ</h3>
+    <p>Укажите ваше имя и телефон, мы свяжемся с вами в течение 24 часов.</p>
+    <form id="order-form">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Телефон" required>
+      <button type="submit">Отправить заказ</button>
+    </form>
+  </div>
+</div>
 
-  <!-- Open Graph (для соцсетей) -->
-  <meta property="og:title" content="Благостол — Подносы и тарелки из сибирского кедра">
-  <meta property="og:description" content="Эко-подносы и сырные тарелки из натурального сибирского кедра ручной работы. Изготовление на заказ в Новосибирске.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://crvadim-ux.github.io/blagostol-site/">
-  <meta property="og:image" content="https://crvadim-ux.github.io/blagostol-site/images/m6-1.jpg">
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: black;
+  }
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .modal-content button:hover {
+    background: #45a049;
+  }
+</style>
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+<script>
+  // Открытие модального окна при клике на "Заказать"
+  document.querySelectorAll('.btn-small').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('order-modal').style.display = 'flex';
+    });
+  });
 
-  <!-- Главная секция (Герой) -->
-  <header class="hero">
-    <div class="hero-wrapper">
-      <div class="hero-content">
-        <div class="container hero-text-center">
-          <h1>"Благостол"</h1>
-          <p>Эко-подносы и сырные тарелки из натурального сибирского кедра</p>
-        </div>
-      </div>
-      <a href="#catalog" class="btn-cta">Посмотреть коллекцию</a>
-    </div>
+  // Закрытие модального окна при клике на "×"
+  document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('order-modal').style.display = 'none';
+  });
 
-    <div class="hero-image">
-      <img src="images/m6-1.jpg" alt="Сервировка на кедровом подносе">
-    </div>
-  </header>
+  // Закрытие при клике вне окна
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('order-modal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 
-  <!-- Секция: Варианты сервировки -->
-  <section id="servirka" class="servirka">
-    <div class="container">
-      <h2>Как использовать наши изделия</h2>
-      <p>Идеи сервировки от профессионалов — красиво, удобно, по-домашнему.</p>
-
-      <div class="servirka-grid">
-        <img src="images/c1.jpeg" alt="Сыры и орехи на кедровой тарелке">
-        <img src="images/c3.jpg" alt="Поднос для шашлыка с зеленью">
-        <img src="images/m5.jpeg" alt="Десерты на маленькой тарелке">
-        <img src="images/f1.jpeg" alt="Фото сервировки">
-        <img src="images/fc4.jpg" alt="Фото сервировки">
-        <img src="images/m3.jpg" alt="Фото сервировки">
-        <img src="images/photo_2025-09-04_21-42-57.jpg" alt="Фото сервировки">
-        <img src="images/с12.png" alt="Фото сервировки">
-        <img src="images/с7.jpg" alt="Фото сервировки">
-      </div>
-    </div>
-  </section>
-
-  <!-- Секция каталога -->
-  <section id="catalog" class="catalog">
-    <div class="container">
-      <h2>Наши изделия</h2>
-      <p>Все подносы и тарелки из натурального сибирского кедра — ручная работа, экологичность, долговечность.</p>
-      <div class="products-grid">
-        <!-- Товары (оставлены без изменений) -->
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/f2-1.jpeg" alt="Сырная тарелка" class="main-image">
-            <img src="images/f2-hover.jpeg" alt="Сырная тарелка - вид сбоку" class="hover-image">
-          </div>
-          <h3>Сырная тарелка - "Солнечный сыр"</h3>
-          <p>Помидоры, как капли лета, сыр — мягкий и белый, орехи — хрустящие. Поднос, где каждый элемент — отголосок солнечного дня.</p>
-          <span class="size">⌀ 230×30 мм.</span>
-          <span class="price">1800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/2.png" alt="Ореховая тарелка" class="main-image">
-            <img src="images/2-2-hover.png" alt="Ореховая тарелка - вид сбоку" class="hover-image">
-          </div>
-          <h3>Ореховая тарелка - "Колесо вкуса"</h3>
-          <p>Дерево, что хранит в себе сладость винограда, хруст миндаля и тепло абрикосов — идеально для уютных вечеров и щедрых душ.</p>
-          <span class="size">⌀ 320×30 мм. + 8 маленьких тарелок</span>
-          <span class="price">3000 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/6.png" alt="Поднос для шашлыка" class="main-image">
-            <img src="images/6-1-hover.png" alt="Поднос для шашлыка - использование" class="hover-image">
-          </div>
-          <h3>Поднос для шашлыка - "Мясной пир"</h3>
-          <p>Сочное мясо, дымящиеся овощи и соусы — всё, что нужно для гастрономического вдохновения, подано с теплом дерева.</p>
-          <span class="size">350×230×35 мм.</span>
-          <span class="price">2500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/7-11.png" alt="Тарелка для закусок" class="main-image">
-            <img src="images/7-2-hover.png" alt="Тарелка для закусок - сервировка" class="hover-image">
-          </div>
-          <h3>«Помидоры и Хруст»</h3>
-          <p>Картошка как солнце в тарелке, зелень как ветерок, а приправы как история на каждом укусе.</p>
-          <span class="size">145×145×22 мм.</span>
-          <span class="price">600 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/3.png" alt="Тарелка - Ягодный Уют" class="main-image">
-            <img src="images/3-1-hover.png" alt="Тарелка - Ягодный Уют - детали" class="hover-image">
-          </div>
-          <h3>Тарелка - "Ягодный Уют"</h3>
-          <p>Идеально для тех, кто ценит красоту в деталях — и хочет, чтобы даже завтрак был праздником.</p>
-          <span class="size">⌀ 220 мм, высота 30 мм.</span>
-          <span class="price">800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/m15-2.png" alt="Поднос - Дымный трон" class="main-image">
-            <img src="images/m15-3-hover.png" alt="Поднос - Дымный трон - сервировка" class="hover-image">
-          </div>
-          <h3>Поднос - "Дымный трон"</h3>
-          <p>Для тех, кто ест не глазами — а душой.</p>
-          <span class="size">350×230×35 мм.</span>
-          <span class="price">2500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/10.png" alt="Поднос - Танец Трёх Вкусов" class="main-image">
-            <img src="images/10-1-hover.png" alt="Поднос - Танец Трёх Вкусов - детали" class="hover-image">
-          </div>
-          <h3>«Танец Трёх Вкусов»</h3>
-          <p>Оливки — как море, сыр — как облако, орехи — как земля. Три мира на одном подносе — чтобы наслаждаться медленно.</p>
-          <span class="size">300×103×22 мм.</span>
-          <span class="price">800 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/1.png" alt="Поднос - Красное и Зелёное" class="main-image">
-            <img src="images/1-1-hover.png" alt="Поднос - Красное и Зелёное - детали" class="hover-image">
-          </div>
-          <h3>«Красное и Зелёное»</h3>
-          <p>Томаты — как капли солнца, авокадо — как шёлк природы. Два цвета, два вкуса, одно удовольствие.</p>
-          <span class="size">⌀ 280 мм, высота 22 мм.</span>
-          <span class="price">1500 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-
-        <div class="product-card">
-          <div class="image-container">
-            <img src="images/30.png" alt="Тарелка - Чашка и Счастье" class="main-image">
-            <img src="images/30-1-hover.png" alt="Тарелка - Чашка и Счастье - детали" class="hover-image">
-          </div>
-          <h3>«Чашка и Счастье»</h3>
-          <p>Чашка дымящегося чая, свежий рулет с ягодами — идеально для тех, кто знает: счастье иногда помещается в одну тарелку.</p>
-          <span class="size">190×190×22 мм.</span>
-          <span class="price">700 ₽</span>
-          <a href="#order-modal" class="btn-small">Заказать</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================== ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ================== -->
-  <section id="additional-info" class="additional-info">
-    <div class="container">
-      <h2>Дополнительная информация</h2>
-      <p>Все наши изделия изготавливаются на станке ЧПУ с последующей ручной обработкой — шлифовка, нанесение масла. По вашему желанию можем изготовить изделия по вашим чертежам и размерам.</p>
-      <p><strong>Для заказа по чертежам:</strong></p>
-      <p class="contact-highlight">
-        <span>📧 Email: <a href="mailto:vbbogachev@yandex.ru">vbbogachev@yandex.ru</a></span><br>
-        <span>📱 WhatsApp: <a href="https://wa.me/79831253213" target="_blank">+7 983 125 32 13</a></span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ================== КОНТАКТЫ ================== -->
-  <section id="contacts" class="contacts">
-    <div class="container">
-      <h2>Контакты</h2>
-      <p><strong>Регион:</strong> Россия, г. Новосибирск</p>
-      <p><strong>Телефоны:</strong><br>
-        <a href="tel:+79831253213">+7 (983) 125-32-13</a><br>
-        <a href="tel:+79139020894">+7 (913) 902-08-94</a>
-      </p>
-      <p><strong>Email:</strong> <a href="mailto:vbbogachev@yandex.ru">vbbogachev@yandex.ru</a></p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/79831253213" target="_blank">+7 983 125 32 13</a></p>
-    </div>
-  </section>
-</body>
-</html>
+  // Обработка формы (просто показывает сообщение)
+  document.getElementById('order-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Спасибо за заказ! Мы свяжемся с вами в течение 24 часов.');
+    this.reset();
+    document.getElementById('order-modal').style.display = 'none';
+  });
+</script>
