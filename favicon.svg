@@ -1,10 +1,15 @@
-<svg width="64" height="64" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <!-- Фон (необязателен, но можно оставить светлым) -->
-  <rect width="32" height="32" fill="#f5eedc"/>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон (опционально, можно удалить для прозрачности) -->
+  <rect width="32" height="32" fill="#ffffff" fill-opacity="0"/>
 
-  <!-- Крона — зелёный овал -->
-  <ellipse cx="16" cy="18" rx="8" ry="10" fill="#3a8c4a"/>
+  <!-- Ствол -->
+  <path d="M14 28 L18 28 L17 24 L15 24 Z" fill="#8b5e3c"/>
 
-  <!-- Ствол — коричневая вертикальная полоса -->
-  <rect x="15" y="26" width="2" height="6" fill="#8b5e3c"/>
+  <!-- Крона — 3 яруса -->
+  <!-- Верхний ярус -->
+  <path d="M16 6 L12 14 L20 14 Z" fill="#3a8c4a"/>
+  <!-- Средний ярус -->
+  <path d="M16 12 L9 20 L23 20 Z" fill="#3a8c4a"/>
+  <!-- Нижний ярус -->
+  <path d="M16 18 L5 26 L27 26 Z" fill="#3a8c4a"/>
 </svg>
