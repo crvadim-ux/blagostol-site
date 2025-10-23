@@ -1,15 +1,15 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <!-- Ствол дерева -->
-  <path d="M16 28C14 28 12 27 10 25C8 23 6 20 6 16C6 12 8 9 10 7C12 5 14 4 16 4C18 4 20 5 22 7C24 9 26 12 26 16C26 20 24 23 22 25C20 27 18 28 16 28Z" fill="#8B4513"/>
-  
-  <!-- Ветви дерева -->
-  <path d="M16 8L14 10L12 12L10 14L8 16" stroke="#8B4513" stroke-width="1" fill="none"/>
-  <path d="M16 8L18 10L20 12L22 14L24 16" stroke="#8B4513" stroke-width="1" fill="none"/>
-  <path d="M16 12L14 14L12 16L10 18" stroke="#8B4513" stroke-width="1" fill="none"/>
-  <path d="M16 12L18 14L20 16L22 18" stroke="#8B4513" stroke-width="1" fill="none"/>
-  <path d="M16 16L14 18L12 20L10 22" stroke="#8B4513" stroke-width="1" fill="none"/>
-  <path d="M16 16L18 18L20 20L22 22" stroke="#8B4513" stroke-width="1" fill="none"/>
-  
-  <!-- Крона дерева (контурная линия) -->
-  <path d="M16 4C14 4 12 5 10 7C8 9 6 12 6 16C6 20 8 23 10 25C12 27 14 28 16 28C18 28 20 27 22 25C24 23 26 20 26 16C26 12 24 9 22 7C20 5 18 4 16 4Z" stroke="#008000" stroke-width="1" fill="none"/>
+  <!-- Фон (опционально, можно удалить для прозрачности) -->
+  <rect width="32" height="32" fill="#ffffff" fill-opacity="0"/>
+
+  <!-- Ствол -->
+  <path d="M14 28 L18 28 L17 24 L15 24 Z" fill="#8b5e3c"/>
+
+  <!-- Крона — 3 яруса -->
+  <!-- Верхний ярус -->
+  <path d="M16 6 L12 14 L20 14 Z" fill="#3a8c4a"/>
+  <!-- Средний ярус -->
+  <path d="M16 12 L9 20 L23 20 Z" fill="#3a8c4a"/>
+  <!-- Нижний ярус -->
+  <path d="M16 18 L5 26 L27 26 Z" fill="#3a8c4a"/>
 </svg>
