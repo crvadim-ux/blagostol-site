@@ -1,44 +1,15 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Белый фон -->
-  <rect width="64" height="64" fill="white"/>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ствол дерева -->
+  <path d="M16 28C14 28 12 27 10 25C8 23 6 20 6 16C6 12 8 9 10 7C12 5 14 4 16 4C18 4 20 5 22 7C24 9 26 12 26 16C26 20 24 23 22 25C20 27 18 28 16 28Z" fill="#8B4513"/>
   
-  <!-- Математическое дерево -->
-  <g stroke="#2E8B57" stroke-width="1.5" fill="none">
-    <!-- Ствол -->
-    <path d="M 32,45 L 32,35" stroke-linecap="round"/>
-    
-    <!-- Крона - внешний контур -->
-    <path d="M 20,35 
-             Q 25,20 32,25
-             Q 39,20 44,35
-             Q 39,40 32,38
-             Q 25,40 20,35" 
-          fill="none" stroke-linejoin="round"/>
-    
-    <!-- Математические символы в кроне -->
-    <g stroke="#228B22" stroke-width="1" font-size="4" text-anchor="middle" fill="#228B22">
-      <!-- Верхний ряд -->
-      <text x="26" y="28">∂</text>
-      <text x="32" y="26">∫</text>
-      <text x="38" y="28">∑</text>
-      
-      <!-- Средний ряд -->
-      <text x="24" y="33">∞</text>
-      <text x="32" y="32">f(x)</text>
-      <text x="40" y="33">π</text>
-      
-      <!-- Нижний ряд -->
-      <text x="28" y="38">∇</text>
-      <text x="36" y="38">dx</text>
-    </g>
-    
-    <!-- Корни -->
-    <path d="M 32,45 
-             Q 28,50 25,48
-             M 32,45
-             Q 32,50 30,52
-             M 32,45
-             Q 36,50 39,48" 
-          stroke-linecap="round"/>
-  </g>
+  <!-- Ветви дерева -->
+  <path d="M16 8L14 10L12 12L10 14L8 16" stroke="#8B4513" stroke-width="1" fill="none"/>
+  <path d="M16 8L18 10L20 12L22 14L24 16" stroke="#8B4513" stroke-width="1" fill="none"/>
+  <path d="M16 12L14 14L12 16L10 18" stroke="#8B4513" stroke-width="1" fill="none"/>
+  <path d="M16 12L18 14L20 16L22 18" stroke="#8B4513" stroke-width="1" fill="none"/>
+  <path d="M16 16L14 18L12 20L10 22" stroke="#8B4513" stroke-width="1" fill="none"/>
+  <path d="M16 16L18 18L20 20L22 22" stroke="#8B4513" stroke-width="1" fill="none"/>
+  
+  <!-- Крона дерева (контурная линия) -->
+  <path d="M16 4C14 4 12 5 10 7C8 9 6 12 6 16C6 20 8 23 10 25C12 27 14 28 16 28C18 28 20 27 22 25C24 23 26 20 26 16C26 12 24 9 22 7C20 5 18 4 16 4Z" stroke="#008000" stroke-width="1" fill="none"/>
 </svg>
